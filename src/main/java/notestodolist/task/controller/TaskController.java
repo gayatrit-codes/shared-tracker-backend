@@ -6,10 +6,14 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/tasks")
 @CrossOrigin("*")
 public class TaskController {
 
+
+    @GetMapping("/") 
+    public String home() { 
+        return "Shared Tracker Backend Running!"; 
+    }
 
     private final TaskService service;
 
@@ -21,7 +25,8 @@ public class TaskController {
     public Taskentity createTask(@RequestBody Taskentity task) {
         return service.createTask(task);
     }
-
+    
+    @RequestMapping("/tasks")
     @GetMapping
     public List<Taskentity> getTasks() {
         return service.getAllTasks();
@@ -34,4 +39,6 @@ public class TaskController {
     ){
         return service.updateTask(id, updatedTask);
     }
+
+   
 }
