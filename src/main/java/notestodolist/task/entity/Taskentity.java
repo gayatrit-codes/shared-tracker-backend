@@ -15,14 +15,18 @@ public class Taskentity {
     private String description;
     private boolean completed;
     private boolean needsReminder;
+    private String createdBy;
+     private String userColor;
     public Taskentity() {    
     } 
-    public Taskentity(Long id, String title, String description, boolean completed, boolean needsReminder) {
+    public Taskentity(Long id, String title, String description, boolean completed, boolean needsReminder, String createdBy, String userColor) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.completed = completed;
         this.needsReminder =  needsReminder;
+        this.createdBy = createdBy;
+        this.userColor = userColor;
     }
 
     public Long getId() {
@@ -56,5 +60,17 @@ public class Taskentity {
     }
     public void setNeedsReminder(boolean needsReminder){
         this.needsReminder = needsReminder;
+    }
+    public String getCreatedBy() {
+        return createdBy;
+    }
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+    public String getUserColor() {
+        return userColor;
+    }
+    public void setUserColor(String userColor) {
+        this.userColor = userColor;
     }
 }

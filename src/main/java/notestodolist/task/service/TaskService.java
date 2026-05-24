@@ -16,6 +16,18 @@ public class TaskService {
     }
 
     public Taskentity createTask(Taskentity task) {
+        if(task.getCreatedBy() == null ||
+            task.getCreatedBy().isBlank()) {
+
+            task.setCreatedBy("Anonymous");
+        }
+
+        if(task.getUserColor() == null ||
+            task.getUserColor().isBlank()) {
+
+            task.setUserColor("#90CAF9");
+        }
+
         return repository.save(task);
     }
 
