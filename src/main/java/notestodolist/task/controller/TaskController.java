@@ -23,6 +23,7 @@ public class TaskController {
     @PostMapping
     public Taskentity addTask(
         @RequestBody Taskentity task) {
+                System.out.println(task.getId());
 
     return taskRepository.save(task);
     }
