@@ -1,6 +1,7 @@
 package notestodolist.task.controller;
 import notestodolist.task.entity.Taskentity;
 import notestodolist.task.service.TaskService;
+import notestodolist.task.repository.TaskRepository;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
@@ -16,16 +17,20 @@ public class TaskController {
     }
 
     private final TaskService service;
-
-    public TaskController(TaskService service) {
+    private final TaskRepository taskRepository;
+    
+    public TaskController(TaskService service, TaskRepository taskRepository) {
         this.service = service;
+        this.taskRepository = taskRepository;   
     }
 
     @PostMapping
-    public Taskentity createTask(@RequestBody Taskentity task) {
-        return service.createTask(task);
+    public Taskentity addTask(
+        @RequestBody Taskentity task) {
+
+    return taskRepository.save(task);
     }
-    
+
     @RequestMapping("/tasks")
     @GetMapping
     public List<Taskentity> getTasks() {
