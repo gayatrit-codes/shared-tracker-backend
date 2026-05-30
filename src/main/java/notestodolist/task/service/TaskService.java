@@ -41,6 +41,9 @@ public class TaskService {
         task.setDescription(updatedTask.getDescription());
         task.setCompleted(updatedTask.isCompleted());
         task.setNeedsReminder(updatedTask.isNeedsReminder());
+        task.setCreatedBy(updatedTask.getCreatedBy());
+        task.setUserColor(updatedTask.getUserColor());
+        task.setReaction(updatedTask.getReaction());
         return repository.save(task);
 
     }
